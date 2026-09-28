@@ -6,13 +6,14 @@
 /*   By: 0x2c@HACK_CC.42.EU </connectSRC>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 06:30:21 by 0x2c@HACK_C       #+#    #+#             */
-/*   Updated: 2026/09/28 06:57:41 by 0x2c@HACK_C      ###   ########.fr       */
+/*   Updated: 2026/09/28 14:48:29 by 0x2c@HACK_C      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 
 #include <unistd.h>
+
 
 int main(int argc, char **argv)
 {
@@ -23,7 +24,7 @@ int main(int argc, char **argv)
     while(j < argc)
     {
         i = 0;
-        while(argv[j][i]!= '\0')
+        while(argv[j][i] != '\0')
         {
         write(1, &argv[j][i], 1);
         i++;
