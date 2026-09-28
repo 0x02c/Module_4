@@ -6,7 +6,7 @@
 /*   By: 0x2c <0x2c@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 01:53:40 by 0x2c              #+#    #+#             */
-/*   Updated: 2026/09/28 02:07:13 by 0x2c             ###   ########.fr       */
+/*   Updated: 2026/09/28 02:38:23 by 0x2c             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,5 +173,150 @@ FÜR ALLE ZUM VERBINDEN (Im Chat-Programm eingeben):
 
 Danach kannst du einfach loslegen und schreiben!
 ***
+
+*/
+
+
+
+/*
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: enp128s31f6: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether a8:2b:dd:72:2b:ce brd ff:ff:ff:ff:ff:ff
+    altname enxa82bdd722bce
+    inet 10.171.113.102/20 brd 10.171.127.255 scope global dynamic noprefixroute enp128s31f6
+       valid_lft 31761sec preferred_lft 31761sec
+    inet6 fe80::aa2b:ddff:fe72:2bce/64 scope link proto kernel_ll
+       valid_lft forever preferred_lft forever
+3: wlp128s20f3: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether 0a:9c:af:92:f1:6b brd ff:ff:ff:ff:ff:ff permaddr d4:94:a9:b9:cd:82
+    altname wlxd494a9b9cd82
+
+
+42 IPv4 = inet 10.171.113.102/20    -> 10.171.113.102
+
+*/
+
+
+
+/*
+Code for IRC - SERVER ! 
+
+
+import socket
+import threading
+
+HOST = "10.171.113.102"
+PORT = 6667
+
+clients = []
+nicknames = {}
+
+
+def send_message(client, message):
+    client.send((message + "\r\n").encode())
+
+
+def broadcast(message, sender=None):
+    for client in clients[:]:
+        if client != sender:
+            try:
+                send_message(client, message)
+            except:
+                clients.remove(client)
+
+
+def handle_client(client, address):
+    nickname = "unknown"
+
+    try:
+        send_message(client, ":server 001 * :Welcome to my IRC server!")
+
+        while True:
+            data = client.recv(1024)
+
+            if not data:
+                break
+
+            lines = data.decode(errors="ignore").split("\r\n")
+
+            for line in lines:
+                if not line:
+                    continue
+
+                parts = line.split(" ", 1)
+                command = parts[0].upper()
+
+                if command == "NICK" and len(parts) > 1:
+                    nickname = parts[1].strip()
+                    nicknames[client] = nickname
+                    send_message(
+                        client,
+                        f":server 001 {nickname} :Welcome {nickname}!"
+                    )
+
+                elif command == "PING":
+                    token = parts[1] if len(parts) > 1 else "server"
+                    send_message(client, f":server PONG server :{token}")
+
+                elif command == "JOIN" and len(parts) > 1:
+                    channel = parts[1].split(" ")[0]
+
+                    if not channel.startswith("#"):
+                        channel = "#" + channel
+
+                    send_message(
+                        client,
+                        f":{nickname}!user@localhost JOIN {channel}"
+                    )
+
+                elif command == "PRIVMSG" and len(parts) > 1:
+                    message_parts = parts[1].split(" :", 1)
+
+                    if len(message_parts) == 2:
+                        target = message_parts[0].strip()
+                        text = message_parts[1]
+
+                        broadcast(
+                            f":{nickname}!user@localhost PRIVMSG "
+                            f"{target} :{text}",
+                            sender=client
+                        )
+
+    except Exception:
+        pass
+
+    if client in clients:
+        clients.remove(client)
+
+    nicknames.pop(client, None)
+    client.close()
+
+
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+server.bind((HOST, PORT))
+server.listen(10)
+
+print(f"IRC server running on {HOST}:{PORT}")
+
+while True:
+    client, address = server.accept()
+
+    print(f"Connection from {address}")
+
+    clients.append(client)
+
+    thread = threading.Thread(
+        target=handle_client,
+        args=(client, address)
+    )
+
+    thread.start()
 
 */
