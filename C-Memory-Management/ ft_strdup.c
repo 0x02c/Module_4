@@ -6,7 +6,7 @@
 /*   By: 0x2c@HACK_CC.42.EU </connectSRC>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 05:53:24 by 0x2c              #+#    #+#             */
-/*   Updated: 2026/09/28 06:59:04 by 0x2c@HACK_C      ###   ########.fr       */
+/*   Updated: 2026/09/28 19:34:06 by 0x2c@HACK_C      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,45 @@
 
 
 #include <stdlib.h>
+char *ft_strdup(char *src)
+{
+    int i;
+    char *copy;
+    i = 0;
 
+    while(src[i] != '\0')
+        i++;
+
+    copy = malloc(sizeof(char) * (i + 1));
+    if(copy == NULL)
+        return (NULL);
+        
+        
+    i = 0;
+
+    while(src[i] != '\0')
+    {
+        copy[i] = src[i];
+        i++;
+    }
+    copy[i] = '\0';
+    return (copy);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 char *ft_strdup(char *src)
 {
     char *copy;
@@ -40,3 +78,4 @@ char *ft_strdup(char *src)
 
     return (copy);
 }
+*/
