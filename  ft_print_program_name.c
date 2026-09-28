@@ -6,7 +6,7 @@
 /*   By: 0x2c <0x2c@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 02:41:57 by 0x2c              #+#    #+#             */
-/*   Updated: 2026/09/28 02:46:47 by 0x2c             ###   ########.fr       */
+/*   Updated: 2026/09/28 05:05:07 by 0x2c             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 
 #include <unistd.h>
 
-int  main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-    int i;
-
+    int     i;
+    
     (void)argc;
-    i = 0;
+    i   =   0;
 
     while(argv[0][i] != '\0')
     {
         write(1, &argv[0][i], 1);
         i++;
     }
-
     write(1, "\n", 1);
     return (0);
 }

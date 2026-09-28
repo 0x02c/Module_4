@@ -6,7 +6,7 @@
 /*   By: 0x2c <0x2c@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 01:53:40 by 0x2c              #+#    #+#             */
-/*   Updated: 2026/09/28 03:31:17 by 0x2c             ###   ########.fr       */
+/*   Updated: 2026/09/28 05:07:01 by 0x2c             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 // ATT from EU
 
-int ft_count_len(char *str)
+int count_len(char *str)
 {
     int i;
     i = 0;
@@ -24,8 +24,12 @@ int ft_count_len(char *str)
     {
         i++;
     }
-    return (i);
+    return(i);
 }
+
+
+
+
 
 // They say a little knowledge is a dangerous thing, but it's not one half so bad as a lot of ignorance.]
 
