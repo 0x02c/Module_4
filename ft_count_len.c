@@ -6,7 +6,7 @@
 /*   By: 0x2c <0x2c@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 01:53:40 by 0x2c              #+#    #+#             */
-/*   Updated: 2026/09/28 02:38:23 by 0x2c             ###   ########.fr       */
+/*   Updated: 2026/09/28 03:31:17 by 0x2c             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ SCHRITT 1: DIE AKTUELLEN IP-ADRESSEN HERAUSFINDEN
 
 2. Deine lokale Netzwerk-IP herausfinden (Für das Router-Setup):
    - Mac:      ipconfig getifaddr en0
-   - Linux:    hostname -I
+   - Linux:    hostname -I ( ip addr )
    - Windows:  ipconfig (Suche nach "IPv4-Adresse", z. B. 192.168.x.x)
 
 --------------------------------------------------------------------
