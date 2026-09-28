@@ -1,5 +1,5 @@
-# ft_count_len
-- Basic script to count Strings in C
+# Whole Module 4 ( Code )
+- Learn and understand the Code from Module 4.
 
 
 -< C-Memory-Management >
