@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    ft_print_program_name.c                           :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: 0x2c@HACK_CC.42.EU </connectSRC>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/28 05:58:16 by 0x2c@HACK_C       #+#    #+#             */
-/*   Updated: 2026/09/28 05:59:05 by 0x2c@HACK_C      ###   ########.fr       */
+/*   Created: 2026/09/28 06:30:21 by 0x2c@HACK_C       #+#    #+#             */
+/*   Updated: 2026/09/28 06:30:28 by 0x2c@HACK_C      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 
 #include <unistd.h>
 
 int main(int argc, char **argv)
 {
-    int     i;
-    
-    (void)argc;
-    i   =   0;
+    int i;
+    int j;
+    j = 1;
 
-    while(argv[0][i] != '\0')
+    while(j < argc)
     {
-        write(1, &argv[0][i], 1);
+        i = 0;
+        while(argv[j][i]!= '\0')
+        {
+        write(1, &argv[j][i], 1);
         i++;
+        }
+
+        write(1, "\n", 1);
+        j++;
     }
-    write(1, "\n", 1);
     return (0);
 }
