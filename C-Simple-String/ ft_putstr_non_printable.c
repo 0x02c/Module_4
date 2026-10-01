@@ -6,7 +6,7 @@
 /*   By: 0x2c@HACK_CC.42.EU </connectSRC>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by 0x2c@HACK_C       #+#    #+#             */
-/*   Updated: 2026/10/01 20:14:36 by 0x2c@HACK_C      ###   ########.fr       */
+/*   Updated: 2026/10/01 23:03:15 by 0x2c@HACK_C      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ void ft_putstr_non_printable(char *str)
     {
         if(!((str[i] >= 32 && str[i] <= 126)))
         {
-            write(1, "\\", 1);
-            write(1, &hex[(unsigned char)str[i] / 16], 1);
-            write(1, &hex[(unsigned char)str[i] % 16], 1);
-
+        write(1, "\\", 1);
+        write(1, &hex[(unsigned char)str[i] / 16], 1);
+        write(1, &hex[(unsigned char)str[i] % 16], 1);
         } else
         {
             write(1, &str[i], 1);
