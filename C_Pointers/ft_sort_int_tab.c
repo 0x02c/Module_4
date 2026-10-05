@@ -12,29 +12,23 @@
 
 
 
-
-
-void ft_sort_int_tab(int *tab, int size)
+void	ft_sort_int_tab(int *tab, int size)
 {
     int i;
-    int j;
     int temp;
-    int s1;
-    s1 = size - 1;
     i = 0;
-    while (i < s1)
+
+    while(i < size - 1)
     {
-        j = i + 1;
-        while (j < size)
+        if(tab[i] < tab[i + 1])
         {
-            if (tab[i] > tab[j])
-            {
-                temp = tab[i];
-                tab[i] = tab[j];
-                tab[j] = temp;
-            }
-            j++;
+            temp = tab[i];
+            tab[i] = tab[i + 1];
+            tab[i + 1] = temp;
+            i = 0;
+        } else
+        {
+            i++;
         }
-        i++;
     }
 }
